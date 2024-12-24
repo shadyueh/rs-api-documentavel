@@ -15,6 +15,14 @@ export async function routes(app:FastifyTypedInstance) {
     schema:{
         tags: ['users'],
         description: 'List users',
+        response: {
+            200: z.array(
+                z.object({
+                id: z.string(),
+                name: z.string(),
+                email: z.string()
+            }))
+        }
     }
  }, ()=> {return users})
 
@@ -25,9 +33,12 @@ export async function routes(app:FastifyTypedInstance) {
         body: z.object({
             name: z.string(),
             email: z.string().email()
-        })
+        }),
+        response: {
+            201: z.null().describe('User created!')
+        }
     }
- }, (request, reply)=> {
+ }, async (request, reply)=> {
     const { name, email} = request.body
     users.push({
         id: randomUUID(),
