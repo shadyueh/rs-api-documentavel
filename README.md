@@ -11,3 +11,9 @@
 - tsx - TypeScript Execute - uma camada de melhoria no Node para executar typescript.
 - typescript - linguagem para escalar o javascript em nível de aplicação. Adiciona tipos opcionais ao JavaScript que suportam ferramentas para aplicações JavaScript de larga escala para qualquer navegador, qualquer servidor, qualquer sistema operacional.
 - @types/node - contém definição de tipos para componentes existentes no Node
+
+## Configurações do Typescript conforme versão do NodeJS utilizado no projeto
+
+O projeto utiliza NodeJs 22
+
+https://github.com/tsconfig/bases
