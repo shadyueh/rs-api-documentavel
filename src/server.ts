@@ -7,10 +7,12 @@ import { routes } from "./routes";
 
 const app = fastify().withTypeProvider<ZodTypeProvider>()
 
+const port = 3333
+
 app.setValidatorCompiler(validatorCompiler)
 app.setSerializerCompiler(serializerCompiler)
 
-app.register(fastifyCors,{origin:'*'})
+app.register(fastifyCors, { origin: '*' })
 
 app.register(fastifySwagger, {
     openapi: {
@@ -30,6 +32,6 @@ app.register(routes, {
     routePrefix: '/docs'
 })
 
-app.listen({port: 3333}).then(()=>{
-    console.log('HTTP Server server running!')
+app.listen({ port }).then(() => {
+    console.log(`HTTP Server server running on port ${port}`)
 })
